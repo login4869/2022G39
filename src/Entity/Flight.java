@@ -1,3 +1,5 @@
+package Entity;
+
 public class Flight {
     private String flightNum;
     private String date;

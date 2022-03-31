@@ -1,4 +1,4 @@
-Reservation Number,ID,Flight Number,Seat,Service
+Reservation Number,ID,Entity.Flight Number,Seat,Service
 11111,000000,JW1023,0,0
 22222,111111,EH0508,0,0
 33333,111007,JB1002,0,0
