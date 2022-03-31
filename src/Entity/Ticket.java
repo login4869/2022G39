@@ -1,3 +1,5 @@
+package Entity;
+
 public class Ticket {
     private String reservationNum;
     private String userID;

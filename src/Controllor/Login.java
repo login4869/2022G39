@@ -1,3 +1,10 @@
+package Controllor;
+
+import Boundary.getdata;
+import Entity.Flight;
+import Entity.Ticket;
+import Entity.User;
+
 import java.util.Scanner;
 
 public class Login {
@@ -13,7 +20,7 @@ public class Login {
 
         userlist = getdata.UserRead();
         ticketlist = getdata.TicketRead();
-        //flightlist = getdata.FlightRead();
+        //flightlist = Boundary.getdata.FlightRead();
 
         System.out.println("select login method");
         System.out.println("1.ticket number login");
