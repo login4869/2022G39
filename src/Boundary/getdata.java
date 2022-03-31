@@ -8,7 +8,7 @@ import java.util.List;
 
 public class getdata {
     public static String[][] UserRead() {
-        String filePath = "src/Resource.User.csv";
+        String filePath = "src/Resource/User.csv";
         List<String> UList = new ArrayList<String>();
         int b = 0;
         try {
@@ -38,7 +38,7 @@ public class getdata {
     }
 
     public static String[][] FlightRead() {
-        String filePath = "src/Resource.Flight.csv";
+        String filePath = "src/Resource/Flight.csv";
         List<String> FList = new ArrayList<String>();
         int b = 0;
         try {
@@ -70,7 +70,7 @@ public class getdata {
     }
 
     public static String[][] TicketRead() {
-        String filePath = "src/Resource.Ticket.csv";
+        String filePath = "src/Resource/Ticket.csv";
         List<String> TList = new ArrayList<String>();
         int b = 0;
         try {
