@@ -1,7 +1,5 @@
 package Entity;
 
-import Controllor.Special_Seat;
-
 public class Ticket {
     private String reservationNum;
     private String userID;
