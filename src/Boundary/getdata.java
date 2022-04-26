@@ -110,6 +110,5 @@ public class getdata {
 
 
     public static void main(String a[]) {
-        Read();
     }
 }

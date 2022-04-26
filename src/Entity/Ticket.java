@@ -1,11 +1,15 @@
 package Entity;
 
+import Controllor.Special_Seat;
+
 public class Ticket {
     private String reservationNum;
     private String userID;
     private String flightNum;
     private String seat;
     private String service;
+    private String Sseat;
+    private String meal;
 
     public Ticket() {
     }
@@ -56,6 +60,22 @@ public class Ticket {
 
     public void setService(String service) {
         this.service = service;
+    }
+
+    public void setMeal(String meal) {
+        this.meal = meal;
+    }
+
+    public String getMeal() {
+        return meal;
+    }
+
+    public String getSseat() {
+        return Sseat;
+    }
+
+    public void setSseat(String Sseat) {
+        this.Sseat = Sseat;
     }
 
 }
