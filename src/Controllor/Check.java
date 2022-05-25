@@ -42,9 +42,9 @@ public class Check {
 
 
         if (getnum == -1) {
-            return new Ticket(null, null, null, null, null);
+            return new Ticket(null, null, null, null, null, null, null);
         } else {
-            return new Ticket(Login.ticketlist[getnum][0], Login.ticketlist[getnum][1], Login.ticketlist[getnum][2], Login.ticketlist[getnum][3], Login.ticketlist[getnum][4]);
+            return new Ticket(Login.ticketlist[getnum][0], Login.ticketlist[getnum][1], Login.ticketlist[getnum][2], Login.ticketlist[getnum][3], Login.ticketlist[getnum][4], Login.ticketlist[getnum][5], Login.ticketlist[getnum][6]);
         }
 
     }
@@ -85,7 +85,8 @@ public class Check {
             }
         }
 
-        return new Ticket(Login.ticketlist[getnum.get(choose - 1)][0], Login.ticketlist[getnum.get(choose - 1)][1], Login.ticketlist[getnum.get(choose - 1)][2], Login.ticketlist[getnum.get(choose - 1)][3], Login.ticketlist[getnum.get(choose - 1)][4]);
+        return new Ticket(Login.ticketlist[getnum.get(choose - 1)][0], Login.ticketlist[getnum.get(choose - 1)][1], Login.ticketlist[getnum.get(choose - 1)][2],
+                Login.ticketlist[getnum.get(choose - 1)][3], Login.ticketlist[getnum.get(choose - 1)][4], Login.ticketlist[getnum.get(choose - 1)][5], Login.ticketlist[getnum.get(choose - 1)][6]);
     }
 
 

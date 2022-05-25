@@ -82,6 +82,9 @@ public class getdata {
                 TList.add(csvReader.get(2));
                 TList.add(csvReader.get(3));
                 TList.add(csvReader.get(4));
+                TList.add(csvReader.get(5));
+                TList.add(csvReader.get(6));
+                TList.add(csvReader.get(7));
 //                TList.add(csvReader.get(5));
                 System.out.println(csvReader.get("mobile"));
                 b++;
@@ -91,10 +94,10 @@ public class getdata {
             e.printStackTrace();
         }
 
-        String[][] TicketList = new String[b][5];
+        String[][] TicketList = new String[b][7];
         int a = 0;
         for (int i = 0; i < b; i++) {
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < 7; j++) {
                 TicketList[i][j] = TList.get(a);
                 a++;
             }
@@ -110,6 +113,5 @@ public class getdata {
 
 
     public static void main(String a[]) {
-        Read();
     }
 }
