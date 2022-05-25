@@ -2,71 +2,74 @@ package Controllor;
 
 
 import Boundary.getdata;
+import Entity.Flight;
+import Entity.Ticket;
+import Entity.User;
 import gui.NumUI;
 import gui.idUI;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class Login extends JFrame {
+
+
+public class Login extends JFrame{
     /**
      *
      */
-    private static final long serialVersionUID = 1L;
-    public static String[][] userlist;
-    public static String[][] ticketlist;
-    private JPanel mainPanel;                /*主面板*/
-    private JButton IDBut;
-    private JButton exitBut;
-    private JButton NumBut;
-    private JButton scanBut;
-    private ImageIcon background;                /*背景图片*/
-    private JLabel backgroundCon;                /*背景图片容器*/
-    private JLabel label1;
     private JLabel label;/*标题*/
     private String option;
 
 
-    public Login() {
+    public static String[][] userlist;
+    public static String[][] ticketlist;
+
+
+    public Login(){
         userlist = getdata.UserRead();
         ticketlist = getdata.TicketRead();
 
 
         //设置框架
         setTitle("welcome to login system");
-        setSize(1600, 900);
+        setSize(1300, 700);
         //setLocation(220, 120);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setUndecorated(true);                //隐藏标题栏
+        setUndecorated( true);				//隐藏标题栏
 
         //设置背景图片
         background = new ImageIcon("images/login.jpeg");
         backgroundCon = new JLabel(background);
-        backgroundCon.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());
+        backgroundCon.setBounds(0, 0, background.getIconWidth(),background.getIconHeight());
         getLayeredPane().add(backgroundCon, new Integer(Integer.MIN_VALUE));
-        JPanel jp = (JPanel) getContentPane();
+        JPanel jp = (JPanel)getContentPane();
         jp.setOpaque(false);
 
         //初始化mainPanel
-        mainPanel = new JPanel();
+        mainPanel  = new JPanel();
         mainPanel.setOpaque(false);
         mainPanel.setLayout(null);
         setContentPane(mainPanel);
 
         //设置标签
         label = new JLabel("Self Service Check-In System");
-        label.setFont(new Font("boldface", Font.BOLD, 80));
+        label.setFont(new Font("boldface",Font.BOLD,80));
         label.setBounds(70, 0, 1300, 150);
         label.setForeground(Color.WHITE);
-        label1 = new JLabel("Select Your Check-In Mode", JLabel.CENTER);
-        label1.setFont(new Font("boldface", Font.BOLD, 40));
+        label1 = new JLabel("Select Your Check-In Mode",JLabel.CENTER);
+        label1.setFont(new Font("boldface",Font.BOLD,40));
         label1.setBounds(0, 100, 1300, 150);
         label1.setForeground(Color.red);
         mainPanel.add(label);
@@ -79,15 +82,15 @@ public class Login extends JFrame {
         exitBut = new JButton("exit");
         scanBut = new JButton("scan your ID card");
 
-        NumBut.setFont(new Font("boldface", Font.BOLD, 40));
-        IDBut.setFont(new Font("boldface", Font.BOLD, 40));
-        exitBut.setFont(new Font("boldface", Font.BOLD, 30));
-        scanBut.setFont(new Font("boldface", Font.BOLD, 40));
+        NumBut.setFont(new Font("boldface",Font.BOLD,40));
+        IDBut.setFont(new Font("boldface",Font.BOLD,40));
+        exitBut.setFont(new Font("boldface",Font.BOLD,30));
+        scanBut.setFont(new Font("boldface",Font.BOLD,40));
 
-        NumBut.setBounds(150, 250, 1000, 50);
-        IDBut.setBounds(150, 340, 1000, 50);
-        exitBut.setBounds(1100, 600, 100, 80);
-        scanBut.setBounds(150, 430, 1000, 50);
+        NumBut.setBounds(150, 250,1000, 50);
+        IDBut.setBounds(150, 340,1000, 50);
+       exitBut.setBounds(1100, 600,100, 80);
+        scanBut.setBounds(150, 430,1000, 50);
 
         mainPanel.add(NumBut);
         mainPanel.add(IDBut);
@@ -108,7 +111,7 @@ public class Login extends JFrame {
         exitBut.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                if(e.getKeyChar() == KeyEvent.VK_ENTER){
                     dispose();
                 }
             }
@@ -116,13 +119,13 @@ public class Login extends JFrame {
         NumBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new NumUI().setVisible(true);
-                option = "1";
+                option="1";
             }
         });
         IDBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new idUI().setVisible(true);
-                option = "2";
+                option="2";
             }
         });
     }

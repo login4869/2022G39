@@ -1,12 +1,13 @@
 package gui;
 
 
-import Controllor.baggage;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import Controllor.baggage;
+import Controllor.Login;
 
 public class BagFrame {
 
@@ -27,20 +28,21 @@ public class BagFrame {
     JButton back2 = new JButton("back");
 
     JLabel la1 = new JLabel();
-    JLabel la2 = new JLabel();
+    JLabel la2= new JLabel();
     JLabel la3 = new JLabel();
     JLabel printpass = new JLabel("This part is used to print boarding pass.");
 
 
-    public BagFrame(baggage user) {
+    public BagFrame(baggage user){
         initFrame();
         addFactor();
         giveInfo(user);
     }
 
 
-    public void initFrame() {
-        bagframe.setBounds(500, 100, 500, 700);
+
+    public void initFrame(){
+        bagframe.setBounds(500,100,500,700);
         card.setLayout(new CardLayout());
         bagframe.setVisible(true);
         bagframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -48,7 +50,7 @@ public class BagFrame {
     }
 
 
-    public void addFactor() {
+    public void addFactor(){
 
         p1.setLayout(new GridLayout(5, 1));
         p2.setLayout(new GridLayout(2, 1));
@@ -71,38 +73,34 @@ public class BagFrame {
         card.add(p2, "carrypage");
         card.add(p3, "checkpage");
 
-        CardLayout showcard = (CardLayout) (card.getLayout());
+        CardLayout showcard=(CardLayout)(card.getLayout());
         showcard.show(card, "mainpage");
 
     }
 
-    public void giveInfo(baggage user) {
+    public void giveInfo(baggage user){
 
-        int carry = 0;
-        int check = 0;
+        int carry=0;
+        int check=0;
 
-        if (user.isHavecarry()) {
-            carry++;
-        }
-        if (user.isHavecheck()) {
-            check++;
-        }
+        if(user.isHavecarry()){ carry++; }
+        if(user.isHavecheck()){ check++; }
 
-        if (carry == 1 && check == 1) {
+        if(carry==1&&check==1){
             la1.setText("You are a customer who has booked carry on baggage and checked baggage services.");
             la2.setText("You have " + user.getCarrybag() + " carry on baggage.");
             la3.setText("You need to go to " + user.getCheckbag() + " to send you baggage.");
-        } else if (carry == 1) {
+        }else if(carry==1){
             la1.setText("You are a customer who has booked carry on baggage service.");
             sendbtn.setEnabled(false);
             sendbtn.setText("no check in baggage");
             la2.setText("You have " + user.getCarrybag() + " carry on baggage.");
-        } else if (check == 1) {
+        }else if(check==1){
             la1.setText("You are a customer who has booked checked baggage service.");
             carrybtn.setEnabled(false);
             carrybtn.setText("no carry on baggage");
             la3.setText("You need to go to " + user.getCheckbag() + " to send you baggage.");
-        } else {
+        }else{
             la1.setText("wrong.");
         }
 
@@ -115,7 +113,7 @@ public class BagFrame {
     }
 
 
-    public void setExit() {
+    public void setExit(){
         //implement a listener to exit button to stop the program
         exit.addActionListener(new ActionListener() {
             @Override
@@ -125,48 +123,48 @@ public class BagFrame {
         });
     }
 
-    public void setCarrybtn() {
+    public void setCarrybtn(){
 
         carrybtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout showcard = (CardLayout) (card.getLayout());
+                CardLayout showcard=(CardLayout)(card.getLayout());
                 showcard.show(card, "carrypage");
             }
         });
 
     }
 
-    public void setSendbtn() {
+    public void setSendbtn(){
 
         sendbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout showcard = (CardLayout) (card.getLayout());
+                CardLayout showcard=(CardLayout)(card.getLayout());
                 showcard.show(card, "checkpage");
             }
         });
 
     }
 
-    public void setBack1() {
+    public void setBack1(){
 
         back1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout showcard = (CardLayout) (card.getLayout());
+                CardLayout showcard=(CardLayout)(card.getLayout());
                 showcard.show(card, "mainpage");
             }
         });
 
     }
 
-    public void setBack2() {
+    public void setBack2(){
 
         back2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout showcard = (CardLayout) (card.getLayout());
+                CardLayout showcard=(CardLayout)(card.getLayout());
                 showcard.show(card, "mainpage");
             }
         });

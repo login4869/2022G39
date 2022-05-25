@@ -10,7 +10,6 @@ public class Ticket {
     private String meal;
     private String carryonBag;
     private String checkinBag;
-    private String seatType;
 
     public Ticket() {
     }
@@ -23,7 +22,6 @@ public class Ticket {
         this.service = service;
         this.carryonBag = carryonBag;
         this.checkinBag = checkinBag;
-        this.seatType = seatType;
     }
 
     public String getReservationNum() {
@@ -66,12 +64,12 @@ public class Ticket {
         this.service = service;
     }
 
-    public String getMeal() {
-        return meal;
-    }
-
     public void setMeal(String meal) {
         this.meal = meal;
+    }
+
+    public String getMeal() {
+        return meal;
     }
 
     public String getSseat() {
@@ -86,15 +84,11 @@ public class Ticket {
         return carryonBag;
     }
 
-    public void setCarryonBag(String carryonBag) {
-        this.carryonBag = carryonBag;
-    }
+    public void setCarryonBag(String carryonBag) { this.carryonBag = carryonBag; }
 
     public String getCheckinBag() {
         return checkinBag;
     }
 
-    public void setCheckinBag(String checkinBag) {
-        this.checkinBag = checkinBag;
-    }
+    public void setCheckinBag(String checkinBag) { this.checkinBag = checkinBag; }
 }
