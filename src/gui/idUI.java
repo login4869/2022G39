@@ -2,6 +2,7 @@ package gui;
 
 
 import Controllor.Check;
+import Controllor.Login;
 import Entity.Flight;
 import Entity.Ticket;
 import Entity.User;
@@ -23,9 +24,6 @@ import javax.swing.JTextField;
 
     public class idUI extends JFrame {
 
-        public static User user;
-        public static Flight flight;
-        public static Ticket ticket;
 
 
         /**
@@ -125,14 +123,14 @@ import javax.swing.JTextField;
             });
             ConfirBut.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    user = Check.IDCheck(idField.getText());;
-                    if (user.getSurname() == null) {
+                    Login.user = Check.IDCheck(idField.getText());;
+                    if (Login.user.getSurname() == null) {
                         //System.out.println("wrong number");
                         idField.setText(null);
                         label3.setText("wrong number");
                     }
                     else {
-                        ticket = Check.ticketForUser(user.getID());
+                        Login.ticket = Check.ticketForUser(Login.user.getID());
                         label3.setText("correct!");
                         UI ui = new UI();
                         ui.firstframe();

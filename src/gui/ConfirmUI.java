@@ -1,5 +1,6 @@
 package gui;
 
+import Controllor.Login;
 import Controllor.baggage;
 import Entity.Ticket;
 
@@ -43,10 +44,10 @@ public class ConfirmUI implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==jb1) {
-			if(NumUI.ticket.getCarryonBag() == "0" && NumUI.ticket.getCheckinBag() == "0"){
+			if(Login.ticket.getCarryonBag() == "0" && Login.ticket.getCheckinBag() == "0"){
 				System.out.println("you don't have baggage");
 			}else{
-				baggage b1 =  new baggage(NumUI.ticket);
+				baggage b1 =  new baggage(Login.ticket);
 				b1.findBag();
 			}
 		}

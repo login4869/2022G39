@@ -84,6 +84,7 @@ public class getdata {
                 TList.add(csvReader.get(4));
                 TList.add(csvReader.get(5));
                 TList.add(csvReader.get(6));
+                TList.add(csvReader.get(7));
 //                TList.add(csvReader.get(5));
                 System.out.println(csvReader.get("mobile"));
                 b++;

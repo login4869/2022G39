@@ -1,4 +1,6 @@
 package gui;
+import Controllor.Login;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

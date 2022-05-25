@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import Controllor.Login;
 import Entity.Flight;
 import Entity.Ticket;
 import Entity.User;
@@ -39,9 +40,6 @@ public class NumUI extends JFrame {
     private JLabel label3;/*标题*/
     private String inputNumber;
 
-    public static User user;
-    public static Flight flight;
-    public static Ticket ticket;
 
     public NumUI(){
 
@@ -115,14 +113,14 @@ public class NumUI extends JFrame {
         });
         ConfirBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ticket = Check.reservationCheck(resNumField.getText());;
-                if (ticket.getFlightNum() == null) {
+                Login.ticket = Check.reservationCheck(resNumField.getText());;
+                if (Login.ticket.getFlightNum() == null) {
                     //System.out.println("wrong number");
                     resNumField.setText(null);
                     label3.setText("wrong number");
                 }
                 else {
-                    user = Check.IDCheck(ticket.getUserID());
+                    Login.user = Check.IDCheck(Login.ticket.getUserID());
                     label3.setText("correct!");
                     UI ui = new UI();
                     ui.firstframe();

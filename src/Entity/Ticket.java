@@ -10,6 +10,7 @@ public class Ticket {
     private String meal;
     private String carryonBag;
     private String checkinBag;
+    private String seatType;
 
     public Ticket() {
     }
@@ -22,6 +23,7 @@ public class Ticket {
         this.service = service;
         this.carryonBag = carryonBag;
         this.checkinBag = checkinBag;
+        this.seatType = seatType;
     }
 
     public String getReservationNum() {
@@ -80,9 +82,7 @@ public class Ticket {
         this.Sseat = Sseat;
     }
 
-    public String getCarryonBag() {
-        return carryonBag;
-    }
+    public String getCarryonBag() { return carryonBag; }
 
     public void setCarryonBag(String carryonBag) { this.carryonBag = carryonBag; }
 
