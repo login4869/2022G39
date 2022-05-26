@@ -1,5 +1,6 @@
 package Controllor;
 
+import Entity.Flight;
 import Entity.Ticket;
 import Entity.User;
 
@@ -8,7 +9,43 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Check {
-    public static User IDCheck(String str) {
+    public static Ticket IDCheck(String str) {
+        int checknum = 0;
+        int getnum = -1;
+        int len = Login.ticketlist.length;
+
+        for (; checknum < len; checknum++) {
+            if (str.equals(Login.ticketlist[checknum][1])) {
+                getnum = checknum;
+            }
+        }
+
+
+        if (getnum == -1) {
+            return new Ticket(null, null, null, null, null, null, null);
+        } else {
+            return new Ticket(Login.ticketlist[getnum][0], Login.ticketlist[getnum][1], Login.ticketlist[getnum][2], Login.ticketlist[getnum][3], Login.ticketlist[getnum][4], Login.ticketlist[getnum][5], Login.ticketlist[getnum][6]);
+        }
+    }
+    public static Flight flightCheck(String str) {
+        int checknum = 0;
+        int getnum = -1;
+        int len = Login.flightlist.length;
+
+        for (; checknum < len; checknum++) {
+            if (str.equals(Login.flightlist[checknum][0])) {
+                getnum = checknum;
+            }
+        }
+
+
+        if (getnum == -1) {
+            return new Flight(null,null,null,null,null);
+        } else {
+            return new Flight(Login.flightlist[getnum][0],Login.flightlist[getnum][1],Login.flightlist[getnum][2],Login.flightlist[getnum][3],Login.flightlist[getnum][4]);
+        }
+    }
+    public static User userCheck(String str) {
         int checknum = 0;
         int getnum = -1;
         int len = Login.userlist.length;
@@ -21,9 +58,9 @@ public class Check {
 
 
         if (getnum == -1) {
-            return new User(null, null, null);
+            return new User(null,null,null);
         } else {
-            return new User(Login.userlist[getnum][0], Login.userlist[getnum][1], Login.userlist[getnum][2]);
+            return new User(Login.userlist[getnum][0],Login.userlist[getnum][1],Login.userlist[getnum][2]);
         }
     }
 

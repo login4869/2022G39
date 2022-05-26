@@ -91,4 +91,9 @@ public class Ticket {
     }
 
     public void setCheckinBag(String checkinBag) { this.checkinBag = checkinBag; }
+    public String getSeatType() {
+        return seatType;
+    }
+
+    public void setSeatType(String checkinBag) { this.seatType = seatType; }
 }

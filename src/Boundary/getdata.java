@@ -6,18 +6,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class getdata {
+public class GetData {
     public static String[][] UserRead() {
         String filePath = "src/Resource/User.csv";
-        List<String> UList = new ArrayList<String>();
+        List<String> uList = new ArrayList<String>();
         int b = 0;
         try {
             CsvReader csvReader = new CsvReader(filePath);
             csvReader.readHeaders();
             while (csvReader.readRecord()) {
-                UList.add(csvReader.get(0));
-                UList.add(csvReader.get(1));
-                UList.add(csvReader.get(2));
+                uList.add(csvReader.get(0));
+                uList.add(csvReader.get(1));
+                uList.add(csvReader.get(2));
                 System.out.println(csvReader.get("mobile"));
                 b++;
             }
@@ -30,7 +30,7 @@ public class getdata {
         int a = 0;
         for (int i = 0; i < b; i++) {
             for (int j = 0; j < 3; j++) {
-                UserList[i][j] = UList.get(a);
+                UserList[i][j] = uList.get(a);
                 a++;
             }
         }
@@ -94,10 +94,10 @@ public class getdata {
             e.printStackTrace();
         }
 
-        String[][] TicketList = new String[b][7];
+        String[][] TicketList = new String[b][8];
         int a = 0;
         for (int i = 0; i < b; i++) {
-            for (int j = 0; j < 7; j++) {
+            for (int j = 0; j < 8; j++) {
                 TicketList[i][j] = TList.get(a);
                 a++;
             }

@@ -9,19 +9,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import Controllor.Login;
-import Entity.Flight;
-import Entity.Ticket;
-import Entity.User;
-
 
 public class NumUI extends JFrame {
 
@@ -43,57 +33,62 @@ public class NumUI extends JFrame {
 
     public NumUI(){
 
-        //设置框架
-        setTitle("input resNum");
-        setSize(600, 400);
+        setSize(1600, 900);
         //setLocation(220, 120);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setUndecorated( true);				//隐藏标题栏
+        setUndecorated(true);                //隐藏标题栏
 
         //设置背景图片
-        background = new ImageIcon("images/background-login.png");
+        background = new ImageIcon("images/login3.jpeg");
         backgroundCon = new JLabel(background);
-        backgroundCon.setBounds(0, 0, background.getIconWidth(),background.getIconHeight());
+        backgroundCon.setBounds(0, 0, background.getIconWidth(), background.getIconHeight());
         getLayeredPane().add(backgroundCon, new Integer(Integer.MIN_VALUE));
-        JPanel jp = (JPanel)getContentPane();
+        JPanel jp = (JPanel) getContentPane();
         jp.setOpaque(false);
 
         //初始化mainPanel
-        mainPanel  = new JPanel();
-        mainPanel.setBackground(Color.gray);
+        mainPanel = new JPanel();
+        mainPanel.setSize(1600, 900);
+        mainPanel.setOpaque(false);
         mainPanel.setLayout(null);
         setContentPane(mainPanel);
 
         //设置标签
-        label1 = new JLabel("number:");
-        label = new JLabel("input your reservation number",JLabel.CENTER);
-        label.setFont(new Font("bold",Font.BOLD,32));
-        label1.setFont(new Font("bold",Font.BOLD , 16));
-        label3 = new JLabel();
-        label3.setFont(new Font("bold",Font.BOLD , 16));
-        label3.setForeground(Color.black);
-        label3.setBounds(250, 240, 200, 30);
+        label1 = new JLabel("here:");
+        label = new JLabel("input your reservation number");
+        label.setFont(new Font("bold",Font.BOLD,80));
+        label1.setFont(new Font("bold",Font.BOLD , 80));
+        label3 = new JLabel("");
+        label3.setFont(new Font("bold",Font.BOLD , 80));
+        label3.setForeground(Color.red);
+        label3.setBounds(900, 500, 800, 120);
         mainPanel.add(label3);
         label.setForeground(Color.black);
         label1.setForeground(Color.black);
-        label.setBounds(0, 0, 600, 150);
-        label1.setBounds(164, 140, 80, 30);
+        label.setBounds(250, 0, 1200, 150);
+        label1.setBounds(100, 150, 1000, 80);
         mainPanel.add(label1);
         mainPanel.add(label);
 
         //设置TextField
         resNumField = new JTextField();
-        resNumField.setBounds(230, 140, 200, 30);
+        resNumField.setBounds(50, 350, 700, 80);
+        resNumField.setFont(new Font("bold",Font.BOLD , 80));
         resNumField.setForeground(Color.black);
+        //resNumField.setBorder(BorderFactory.createLineBorder(Color.red));
+        //resNumField.setOpaque(false);
         mainPanel.add(resNumField);
 
         //设置按钮位置
         ConfirBut = new JButton("confirm");
         exitBut = new JButton("exit");
-        ConfirBut.setBounds(110, 280,120, 36);
-        exitBut.setBounds(350, 280,120, 36);
+        ConfirBut.setBounds(800, 700,340, 120);
+        exitBut.setBounds(1300, 700,240, 120);
+        ConfirBut.setFont(new Font("bold",Font.BOLD , 70));
+        exitBut.setFont(new Font("bold",Font.BOLD , 70));
+
         mainPanel.add(ConfirBut);
         mainPanel.add(exitBut);
 
@@ -113,14 +108,15 @@ public class NumUI extends JFrame {
         });
         ConfirBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Login.ticket = Check.reservationCheck(resNumField.getText());;
+                Login.ticket = Check.reservationCheck(resNumField.getText());
                 if (Login.ticket.getFlightNum() == null) {
                     //System.out.println("wrong number");
                     resNumField.setText(null);
-                    label3.setText("wrong number");
+                    label3.setText("wrong number!");
                 }
                 else {
-                    Login.user = Check.IDCheck(Login.ticket.getUserID());
+                    Login.user=Check.userCheck(Login.ticket.getUserID());
+                    Login.flight=Check.flightCheck(Login.ticket.getFlightNum());
                     label3.setText("correct!");
                     UI ui = new UI();
                     ui.firstframe();

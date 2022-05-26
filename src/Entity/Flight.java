@@ -12,7 +12,7 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(String flightNum, String date, String timeToLeave, String timeToArrive, String planeType, String seat, String service) {
+    public Flight(String flightNum, String date, String planeType, String seat, String service) {
         this.flightNum = flightNum;
         this.date = date;
         this.timeToLeave = timeToLeave;

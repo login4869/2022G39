@@ -1,12 +1,12 @@
 package Controllor;
 
 
-import Boundary.getdata;
+import Boundary.GetData;
 import Entity.Flight;
 import Entity.Ticket;
 import Entity.User;
 import gui.NumUI;
-import gui.idUI;
+import gui.IdUi;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -45,11 +45,13 @@ public class Login extends JFrame{
 
     public static String[][] userlist;
     public static String[][] ticketlist;
+    public static String[][] flightlist;
 
 
     public Login(){
-        userlist = getdata.UserRead();
-        ticketlist = getdata.TicketRead();
+        userlist = GetData.UserRead();
+        ticketlist = GetData.TicketRead();
+        flightlist = GetData.FlightRead();
 
 
         //设置框架
@@ -137,7 +139,7 @@ public class Login extends JFrame{
         });
         IDBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new idUI().setVisible(true);
+                new IdUi().setVisible(true);
                 option="2";
             }
         });
