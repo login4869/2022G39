@@ -4,34 +4,27 @@ package gui;
 import Controllor.Check;
 import Controllor.Login;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.Color;
-import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+
+public class IdUI extends JFrame {
 
 
-    public class IdUi extends JFrame {
-
-
-        /**
-         *
-         */
-        private static final long serialVersionUID = 1L;
-        private JPanel mainPanel;                /*主面板*/
-        private JTextField idField;
-        private JTextField surField;
-        private JButton exitBut;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private JPanel mainPanel;                /*主面板*/
+    private JTextField idField;
+    private JTextField surField;
+    private JButton exitBut;
         private JButton ConfirBut;
         public JButton ticketBut0;
         public JButton ticketBut1;
@@ -49,7 +42,7 @@ import javax.swing.JTextField;
         private JLabel miss;
         public List<Integer> getnum = new ArrayList<Integer>();
 
-        public IdUi() {
+        public IdUI() {
 
             setSize(1600, 900);
             //setLocation(220, 120);
@@ -174,7 +167,7 @@ import javax.swing.JTextField;
             });
             ticketBut0.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    Login.ticket = Check.reservationCheck(Login.ticketlist[getnum.get(0)][0]);
+                    Login.ticket = Check.reservationCheck(Login.ticketList[getnum.get(0)][0]);
                     Login.user = Check.userCheck(Login.ticket.getUserID());
                     Login.flight = Check.flightCheck(Login.ticket.getFlightNum());
                     UI ui = new UI();
@@ -184,7 +177,7 @@ import javax.swing.JTextField;
             });
             ticketBut1.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    Login.ticket = Check.reservationCheck(Login.ticketlist[getnum.get(1)][0]);
+                    Login.ticket = Check.reservationCheck(Login.ticketList[getnum.get(1)][0]);
                     Login.user = Check.userCheck(Login.ticket.getUserID());
                     Login.flight = Check.flightCheck(Login.ticket.getFlightNum());
                     UI ui = new UI();
@@ -194,7 +187,7 @@ import javax.swing.JTextField;
             });
             ticketBut2.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    Login.ticket = Check.reservationCheck(Login.ticketlist[getnum.get(2)][0]);
+                    Login.ticket = Check.reservationCheck(Login.ticketList[getnum.get(2)][0]);
                     Login.user = Check.userCheck(Login.ticket.getUserID());
                     Login.flight = Check.flightCheck(Login.ticket.getFlightNum());
                     UI ui = new UI();
@@ -204,7 +197,7 @@ import javax.swing.JTextField;
             });
             ticketBut3.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    Login.ticket = Check.reservationCheck(Login.ticketlist[getnum.get(3)][0]);
+                    Login.ticket = Check.reservationCheck(Login.ticketList[getnum.get(3)][0]);
                     Login.user = Check.userCheck(Login.ticket.getUserID());
                     Login.flight = Check.flightCheck(Login.ticket.getFlightNum());
                     UI ui = new UI();
@@ -218,9 +211,9 @@ import javax.swing.JTextField;
         public void tickerChoose(String userid) {
             int checknum = 0;
             int ticketnum = 0;
-            int len = Login.ticketlist.length;
+            int len = Login.ticketList.length;
             for (; checknum < len; checknum++) {
-                if (userid.equals(Login.ticketlist[checknum][1])) {
+                if (userid.equals(Login.ticketList[checknum][1])) {
                     getnum.add(checknum);
                     ticketnum++;
                 }
@@ -235,34 +228,34 @@ import javax.swing.JTextField;
                 if (ticketnum == 1) {
                     label3.setText("correct!");
                     ticketBut0.setVisible(true);
-                    ticketBut0.setText(1 + ": " + Login.ticketlist[getnum.get(0)][0] + "," + Login.ticketlist[getnum.get(0)][2]);
+                    ticketBut0.setText(1 + ": " + Login.ticketList[getnum.get(0)][0] + "," + Login.ticketList[getnum.get(0)][2]);
                 }
                 if (ticketnum == 2) {
                     label3.setText("correct!");
                     ticketBut0.setVisible(true);
-                    ticketBut0.setText(1 + ": " + Login.ticketlist[getnum.get(0)][0] + "," + Login.ticketlist[getnum.get(0)][2]);
+                    ticketBut0.setText(1 + ": " + Login.ticketList[getnum.get(0)][0] + "," + Login.ticketList[getnum.get(0)][2]);
                     ticketBut1.setVisible(true);
-                    ticketBut1.setText(2 + ": " + Login.ticketlist[getnum.get(1)][0] + "," + Login.ticketlist[getnum.get(1)][2]);
+                    ticketBut1.setText(2 + ": " + Login.ticketList[getnum.get(1)][0] + "," + Login.ticketList[getnum.get(1)][2]);
                 }
                 if (ticketnum == 3) {
                     label3.setText("correct!");
                     ticketBut0.setVisible(true);
-                    ticketBut0.setText(1 + ": " + Login.ticketlist[getnum.get(0)][0] + "," + Login.ticketlist[getnum.get(0)][2]);
+                    ticketBut0.setText(1 + ": " + Login.ticketList[getnum.get(0)][0] + "," + Login.ticketList[getnum.get(0)][2]);
                     ticketBut1.setVisible(true);
-                    ticketBut1.setText(2 + ": " + Login.ticketlist[getnum.get(1)][0] + "," + Login.ticketlist[getnum.get(1)][2]);
+                    ticketBut1.setText(2 + ": " + Login.ticketList[getnum.get(1)][0] + "," + Login.ticketList[getnum.get(1)][2]);
                     ticketBut2.setVisible(true);
-                    ticketBut2.setText(3 + ": " + Login.ticketlist[getnum.get(2)][0] + "," + Login.ticketlist[getnum.get(2)][2]);
+                    ticketBut2.setText(3 + ": " + Login.ticketList[getnum.get(2)][0] + "," + Login.ticketList[getnum.get(2)][2]);
                 }
                 if (ticketnum == 4) {
                     label3.setText("correct!");
                     ticketBut0.setVisible(true);
-                    ticketBut0.setText(1 + ": " + Login.ticketlist[getnum.get(0)][0] + "," + Login.ticketlist[getnum.get(0)][2]);
+                    ticketBut0.setText(1 + ": " + Login.ticketList[getnum.get(0)][0] + "," + Login.ticketList[getnum.get(0)][2]);
                     ticketBut1.setVisible(true);
-                    ticketBut1.setText(2 + ": " + Login.ticketlist[getnum.get(1)][0] + "," + Login.ticketlist[getnum.get(1)][2]);
+                    ticketBut1.setText(2 + ": " + Login.ticketList[getnum.get(1)][0] + "," + Login.ticketList[getnum.get(1)][2]);
                     ticketBut2.setVisible(true);
-                    ticketBut2.setText(3 + ": " + Login.ticketlist[getnum.get(2)][0] + "," + Login.ticketlist[getnum.get(2)][2]);
+                    ticketBut2.setText(3 + ": " + Login.ticketList[getnum.get(2)][0] + "," + Login.ticketList[getnum.get(2)][2]);
                     ticketBut3.setVisible(true);
-                    ticketBut3.setText(4 + ": " + Login.ticketlist[getnum.get(3)][0] + "," + Login.ticketlist[getnum.get(3)][2]);
+                    ticketBut3.setText(4 + ": " + Login.ticketList[getnum.get(3)][0] + "," + Login.ticketList[getnum.get(3)][2]);
                 }
                 selectTicket.setText("Which one you want to choose.");
             }

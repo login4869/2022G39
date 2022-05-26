@@ -5,20 +5,15 @@ import Boundary.GetData;
 import Entity.Flight;
 import Entity.Ticket;
 import Entity.User;
+import gui.IdUI;
 import gui.NumUI;
-import gui.IdUi;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 
 
@@ -32,8 +27,8 @@ public class Login extends JFrame{
     private JButton exitBut;
     private JButton NumBut;
     private JButton scanBut;
-    private ImageIcon background;				/*背景图片*/
-    private JLabel backgroundCon;				/*背景图片容器*/
+    private ImageIcon background;                /*背景图片*/
+    public static String[][] userList;
     private JLabel label1;
     private JLabel label;/*标题*/
     private String option;
@@ -41,17 +36,15 @@ public class Login extends JFrame{
     public static User user;
     public static Flight flight;
     public static Ticket ticket;
+    public static String[][] ticketList;
+    public static String[][] flightList;
+    private JLabel backgroundCon;                /*背景图片容器*/
 
 
-    public static String[][] userlist;
-    public static String[][] ticketlist;
-    public static String[][] flightlist;
-
-
-    public Login(){
-        userlist = GetData.UserRead();
-        ticketlist = GetData.TicketRead();
-        flightlist = GetData.FlightRead();
+    public Login() {
+        userList = GetData.UserRead();
+        ticketList = GetData.TicketRead();
+        flightList = GetData.FlightRead();
 
 
         //设置框架
@@ -61,7 +54,7 @@ public class Login extends JFrame{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setUndecorated( true);				//隐藏标题栏
+        setUndecorated(true);                //隐藏标题栏
 
         //设置背景图片
         background = new ImageIcon("images/login2.jpeg");
@@ -139,8 +132,8 @@ public class Login extends JFrame{
         });
         IDBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new IdUi().setVisible(true);
-                option="2";
+                new IdUI().setVisible(true);
+                option = "2";
             }
         });
     }

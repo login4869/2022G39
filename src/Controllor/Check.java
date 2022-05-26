@@ -12,10 +12,10 @@ public class Check {
     public static Ticket IDCheck(String str) {
         int checkNum = 0;
         int getNum = -1;
-        int len = Login.ticketlist.length;
+        int len = Login.ticketList.length;
 
         for (; checkNum < len; checkNum++) {
-            if (str.equals(Login.ticketlist[checkNum][1])) {
+            if (str.equals(Login.ticketList[checkNum][1])) {
                 getNum = checkNum;
             }
         }
@@ -24,16 +24,16 @@ public class Check {
         if (getNum == -1) {
             return new Ticket(null, null, null, null, null, null, null);
         } else {
-            return new Ticket(Login.ticketlist[getNum][0], Login.ticketlist[getNum][1], Login.ticketlist[getNum][2], Login.ticketlist[getNum][3], Login.ticketlist[getNum][4], Login.ticketlist[getNum][5], Login.ticketlist[getNum][6]);
+            return new Ticket(Login.ticketList[getNum][0], Login.ticketList[getNum][1], Login.ticketList[getNum][2], Login.ticketList[getNum][3], Login.ticketList[getNum][4], Login.ticketList[getNum][5], Login.ticketList[getNum][6]);
         }
     }
     public static Flight flightCheck(String str) {
         int checkNum = 0;
         int getNum = -1;
-        int len = Login.flightlist.length;
+        int len = Login.flightList.length;
 
         for (; checkNum < len; checkNum++) {
-            if (str.equals(Login.flightlist[checkNum][0])) {
+            if (str.equals(Login.flightList[checkNum][0])) {
                 getNum = checkNum;
             }
         }
@@ -42,16 +42,16 @@ public class Check {
         if (getNum == -1) {
             return new Flight(null, null, null, null, null);
         } else {
-            return new Flight(Login.flightlist[getNum][0], Login.flightlist[getNum][1], Login.flightlist[getNum][2], Login.flightlist[getNum][3], Login.flightlist[getNum][4]);
+            return new Flight(Login.flightList[getNum][0], Login.flightList[getNum][1], Login.flightList[getNum][2], Login.flightList[getNum][3], Login.flightList[getNum][4]);
         }
     }
     public static User userCheck(String str) {
         int checkNum = 0;
         int getNum = -1;
-        int len = Login.userlist.length;
+        int len = Login.userList.length;
 
         for (; checkNum < len; checkNum++) {
-            if (str.equals(Login.userlist[checkNum][2])) {
+            if (str.equals(Login.userList[checkNum][2])) {
                 getNum = checkNum;
             }
         }
@@ -60,7 +60,7 @@ public class Check {
         if (getNum == -1) {
             return new User(null, null, null);
         } else {
-            return new User(Login.userlist[getNum][0], Login.userlist[getNum][1], Login.userlist[getNum][2]);
+            return new User(Login.userList[getNum][0], Login.userList[getNum][1], Login.userList[getNum][2]);
         }
     }
 
@@ -69,10 +69,10 @@ public class Check {
 
         int checkNum = 0;
         int getNum = -1;
-        int len = Login.ticketlist.length;
+        int len = Login.ticketList.length;
 
         for (; checkNum < len; checkNum++) {
-            if (str.equals(Login.ticketlist[checkNum][0])) {
+            if (str.equals(Login.ticketList[checkNum][0])) {
                 getNum = checkNum;
             }
         }
@@ -81,7 +81,7 @@ public class Check {
         if (getNum == -1) {
             return new Ticket(null, null, null, null, null, null, null);
         } else {
-            return new Ticket(Login.ticketlist[getNum][0], Login.ticketlist[getNum][1], Login.ticketlist[getNum][2], Login.ticketlist[getNum][3], Login.ticketlist[getNum][4], Login.ticketlist[getNum][5], Login.ticketlist[getNum][6]);
+            return new Ticket(Login.ticketList[getNum][0], Login.ticketList[getNum][1], Login.ticketList[getNum][2], Login.ticketList[getNum][3], Login.ticketList[getNum][4], Login.ticketList[getNum][5], Login.ticketList[getNum][6]);
         }
 
     }
@@ -90,10 +90,10 @@ public class Check {
     public static Ticket ticketForUser(String userid) {
         int checkNum = 0;
         int ticketNum = 0;
-        int len = Login.ticketlist.length;
+        int len = Login.ticketList.length;
         List<Integer> getNum = new ArrayList<Integer>();
         for (; checkNum < len; checkNum++) {
-            if (userid.equals(Login.ticketlist[checkNum][1])) {
+            if (userid.equals(Login.ticketList[checkNum][1])) {
                 getNum.add(checkNum);
                 ticketNum++;
             }
@@ -101,7 +101,7 @@ public class Check {
 
         System.out.println("You have " + ticketNum + " ticket:");
         for (int i = 0; i < ticketNum; i++) {
-            System.out.println(i + 1 + ": " + Login.ticketlist[getNum.get(i)][0]);
+            System.out.println(i + 1 + ": " + Login.ticketList[getNum.get(i)][0]);
         }
         System.out.println("Which one you want to choose.");
         Scanner sc = new Scanner(System.in);
@@ -122,8 +122,8 @@ public class Check {
             }
         }
 
-        return new Ticket(Login.ticketlist[getNum.get(choose - 1)][0], Login.ticketlist[getNum.get(choose - 1)][1], Login.ticketlist[getNum.get(choose - 1)][2],
-                Login.ticketlist[getNum.get(choose - 1)][3], Login.ticketlist[getNum.get(choose - 1)][4], Login.ticketlist[getNum.get(choose - 1)][5], Login.ticketlist[getNum.get(choose - 1)][6]);
+        return new Ticket(Login.ticketList[getNum.get(choose - 1)][0], Login.ticketList[getNum.get(choose - 1)][1], Login.ticketList[getNum.get(choose - 1)][2],
+                Login.ticketList[getNum.get(choose - 1)][3], Login.ticketList[getNum.get(choose - 1)][4], Login.ticketList[getNum.get(choose - 1)][5], Login.ticketList[getNum.get(choose - 1)][6]);
     }
 
 
