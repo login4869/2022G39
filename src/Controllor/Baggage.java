@@ -5,14 +5,14 @@ import gui.BagFrame;
 
 import java.util.Scanner;
 
-public class baggage {
+public class Baggage {
     Ticket t;
     String carryBag;
     String checkBag;
     boolean haveCarry;
     boolean haveCheck;
 
-    public baggage(Ticket t) {
+    public Baggage(Ticket t) {
         this.t = t;
         this.carryBag = t.getCarryonBag();
         this.checkBag = t.getCheckinBag();
@@ -54,13 +54,13 @@ public class baggage {
         if (carryBag1.equals("0") == false) {
             carry++;
         } else {
-            System.out.println("you don't have carry on baggage.");
+            System.out.println("you don't have carry on Baggage.");
             this.haveCarry = false;
         }
         if (checkBag1.equals("0") == false) {
             check++;
         } else {
-            System.out.println("you don't have check in baggage.");
+            System.out.println("you don't have check in Baggage.");
             this.haveCheck = false;
         }
 
@@ -78,9 +78,9 @@ public class baggage {
 
 
     void twoBag(String carryBag, String checkBag) {
-        System.out.println("you can find some of your detail of baggage");
-        System.out.println("1.print the tag for the carry on baggage.");
-        System.out.println("2.print the wondow for check in baggage");
+        System.out.println("you can find some of your detail of Baggage");
+        System.out.println("1.print the tag for the carry on Baggage.");
+        System.out.println("2.print the wondow for check in Baggage");
         System.out.println("other.exit.");
 
         Scanner sc = new Scanner(System.in);
@@ -88,10 +88,10 @@ public class baggage {
 
         switch (str) {
             case "1":
-                System.out.println("You have " + carryBag + " carry on baggage.");
+                System.out.println("You have " + carryBag + " carry on Baggage.");
                 break;
             case "2":
-                System.out.println("You need to go to " + checkBag + " to send you baggage.");
+                System.out.println("You need to go to " + checkBag + " to send you Baggage.");
                 break;
             default:
                 System.exit(0);
@@ -106,7 +106,7 @@ public class baggage {
     }
 
     void printCarry(String carryBag) {
-        System.out.println("You have " + carryBag + " carry on baggage.");
+        System.out.println("You have " + carryBag + " carry on Baggage.");
         System.out.println("print any char to back to end");
         Scanner sc2 = new Scanner(System.in);
         String any = sc2.next();
@@ -114,7 +114,7 @@ public class baggage {
     }
 
     void printCheck(String checkBag) {
-        System.out.println("You need to go to " + checkBag + " to send you baggage.");
+        System.out.println("You need to go to " + checkBag + " to send you Baggage.");
         System.out.println("print any char to back to end");
         Scanner sc2 = new Scanner(System.in);
         String any = sc2.next();

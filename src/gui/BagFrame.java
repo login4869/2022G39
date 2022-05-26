@@ -1,7 +1,7 @@
 package gui;
 
 
-import Controllor.baggage;
+import Controllor.Baggage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class BagFrame {
 
-    JFrame bagframe = new JFrame("baggage operation");
+    JFrame bagframe = new JFrame("Baggage operation");
 
     JPanel p1 = new JPanel();
     JPanel p2 = new JPanel();
@@ -20,19 +20,19 @@ public class BagFrame {
     JPanel card = new JPanel();
 
 
-    JButton carrybtn = new JButton("Carry on baggage");
-    JButton sendbtn = new JButton("check in baggage");
+    JButton carrybtn = new JButton("Carry on Baggage");
+    JButton sendbtn = new JButton("check in Baggage");
     JButton exit = new JButton("exit");
     JButton back1 = new JButton("back");
     JButton back2 = new JButton("back");
 
     JLabel la1 = new JLabel();
-    JLabel la2= new JLabel();
+    JLabel la2 = new JLabel();
     JLabel la3 = new JLabel();
     JLabel printpass = new JLabel("This part is used to print boarding pass.");
 
 
-    public BagFrame(baggage user){
+    public BagFrame(Baggage user) {
         initFrame();
         addFactor();
         giveInfo(user);
@@ -77,7 +77,7 @@ public class BagFrame {
 
     }
 
-    public void giveInfo(baggage user) {
+    public void giveInfo(Baggage user) {
 
         int carry = 0;
         int check = 0;
@@ -90,20 +90,20 @@ public class BagFrame {
         }
 
         if (carry == 1 && check == 1) {
-            la1.setText("You are a customer who has booked carry on baggage and checked baggage services.");
-            la2.setText("You have " + user.getCarryBag() + " carry on baggage.");
-            la3.setText("You need to go to " + user.getCheckBag() + " to send you baggage.");
+            la1.setText("You are a customer who has booked carry on Baggage and checked Baggage services.");
+            la2.setText("You have " + user.getCarryBag() + " carry on Baggage.");
+            la3.setText("You need to go to " + user.getCheckBag() + " to send you Baggage.");
         } else if (carry == 1) {
-            la1.setText("You are a customer who has booked carry on baggage service.");
+            la1.setText("You are a customer who has booked carry on Baggage service.");
             sendbtn.setEnabled(false);
-            sendbtn.setText("no check in baggage");
-            la2.setText("You have " + user.getCarryBag() + " carry on baggage.");
-        }else if(check==1){
-            la1.setText("You are a customer who has booked checked baggage service.");
+            sendbtn.setText("no check in Baggage");
+            la2.setText("You have " + user.getCarryBag() + " carry on Baggage.");
+        } else if (check == 1) {
+            la1.setText("You are a customer who has booked checked Baggage service.");
             carrybtn.setEnabled(false);
-            carrybtn.setText("no carry on baggage");
-            la3.setText("You need to go to " + user.getCheckBag() + " to send you baggage.");
-        }else{
+            carrybtn.setText("no carry on Baggage");
+            la3.setText("You need to go to " + user.getCheckBag() + " to send you Baggage.");
+        } else {
             la1.setText("wrong.");
         }
 

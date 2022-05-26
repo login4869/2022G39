@@ -1,12 +1,13 @@
 package gui;
 
+import Controllor.Baggage;
 import Controllor.Login;
-import Controllor.baggage;
 import Entity.Ticket;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class ConfirmUI implements ActionListener {
@@ -45,9 +46,9 @@ public class ConfirmUI implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==jb1) {
 			if(Login.ticket.getCarryonBag() == "0" && Login.ticket.getCheckinBag() == "0"){
-				System.out.println("you don't have baggage");
+				System.out.println("you don't have Baggage");
 			}else{
-				baggage b1 =  new baggage(Login.ticket);
+				Baggage b1 = new Baggage(Login.ticket);
 				b1.findBag();
 			}
 		}
