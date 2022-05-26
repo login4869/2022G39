@@ -1,82 +1,83 @@
 package Controllor;
 
 import Entity.Ticket;
-import Entity.User;
 import gui.BagFrame;
 
 import java.util.Scanner;
 
 public class baggage {
     Ticket t;
-    String carrybag;
-    String checkbag;
-    boolean havecarry;
-    boolean havecheck;
+    String carryBag;
+    String checkBag;
+    boolean haveCarry;
+    boolean haveCheck;
 
-    public baggage(Ticket t){
+    public baggage(Ticket t) {
         this.t = t;
-        this.carrybag = t.getCarryonBag();
-        this.checkbag = t.getCheckinBag();
-        this.havecarry = true;
-        this.havecheck = true;
+        this.carryBag = t.getCarryonBag();
+        this.checkBag = t.getCheckinBag();
+        this.haveCarry = true;
+        this.haveCheck = true;
     }
 
-    public void setCarrybag(String carrybag) {
-        this.carrybag = carrybag;
+    public String getCarryBag() {
+        return carryBag;
     }
 
-    public void setCheckbag(String checkbag) {
-        this.checkbag = checkbag;
+    public void setCarryBag(String carryBag) {
+        this.carryBag = carryBag;
     }
 
-    public String getCarrybag() {
-        return carrybag;
+    public String getCheckBag() {
+        return checkBag;
     }
 
-    public String getCheckbag() {
-        return checkbag;
+    public void setCheckBag(String checkBag) {
+        this.checkBag = checkBag;
     }
 
-    public boolean isHavecarry() {
-        return havecarry;
+    public boolean isHaveCarry() {
+        return haveCarry;
     }
 
-    public boolean isHavecheck() {
-        return havecheck;
+    public boolean isHaveCheck() {
+        return haveCheck;
     }
 
-   public void findBag(){
+    public void findBag() {
         int carry = 0;
         int check = 0;
-        String carrybag = this.carrybag;
-        String checkbag = this.checkbag;
+        String carryBag1 = this.carryBag;
+        String checkBag1 = this.checkBag;
         System.out.println();
         System.out.println();
-        if(carrybag.equals("0") == false){ carry++; }
-        else {
+        if (carryBag1.equals("0") == false) {
+            carry++;
+        } else {
             System.out.println("you don't have carry on baggage.");
-            this.havecarry = false;
+            this.haveCarry = false;
         }
-        if(checkbag.equals("0") == false){ check++; }
-        else{
+        if (checkBag1.equals("0") == false) {
+            check++;
+        } else {
             System.out.println("you don't have check in baggage.");
-            this.havecheck = false;
+            this.haveCheck = false;
         }
 
         BagFrame fra1 = new BagFrame(this);
 
         /*if(carry != 0 && check != 0){
-            twoBag(carrybag, checkbag);
+            twoBag(carryBag1, checkBag1);
         }else if(carry != 0){
-            printCarry(carrybag);
+            printCarry(carryBag1);
         }else if(check != 0){
-            printCheck(checkbag);
+            printCheck(checkBag1);
         }*/
 
     }
 
 
-    void twoBag(String carrybag, String checkbag) {
+    void twoBag(String carryBag, String checkBag) {
         System.out.println("you can find some of your detail of baggage");
         System.out.println("1.print the tag for the carry on baggage.");
         System.out.println("2.print the wondow for check in baggage");
@@ -87,10 +88,10 @@ public class baggage {
 
         switch (str) {
             case "1":
-                System.out.println("You have " + carrybag + " carry on baggage.");
+                System.out.println("You have " + carryBag + " carry on baggage.");
                 break;
             case "2":
-                System.out.println("You need to go to " + checkbag + " to send you baggage.");
+                System.out.println("You need to go to " + checkBag + " to send you baggage.");
                 break;
             default:
                 System.exit(0);
@@ -100,20 +101,20 @@ public class baggage {
         Scanner sc2 = new Scanner(System.in);
         String any = sc2.next();
         System.out.println();
-        twoBag(carrybag, checkbag);
+        twoBag(carryBag, checkBag);
 
     }
 
-    void printCarry(String carrybag){
-        System.out.println("You have " + carrybag + " carry on baggage.");
+    void printCarry(String carryBag) {
+        System.out.println("You have " + carryBag + " carry on baggage.");
         System.out.println("print any char to back to end");
         Scanner sc2 = new Scanner(System.in);
         String any = sc2.next();
         System.exit(1);
     }
 
-    void printCheck(String checkbag){
-        System.out.println("You need to go to " + checkbag + " to send you baggage.");
+    void printCheck(String checkBag) {
+        System.out.println("You need to go to " + checkBag + " to send you baggage.");
         System.out.println("print any char to back to end");
         Scanner sc2 = new Scanner(System.in);
         String any = sc2.next();

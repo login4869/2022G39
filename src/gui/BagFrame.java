@@ -1,13 +1,12 @@
 package gui;
 
 
+import Controllor.baggage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import Controllor.baggage;
-import Controllor.Login;
 
 public class BagFrame {
 
@@ -78,28 +77,32 @@ public class BagFrame {
 
     }
 
-    public void giveInfo(baggage user){
+    public void giveInfo(baggage user) {
 
-        int carry=0;
-        int check=0;
+        int carry = 0;
+        int check = 0;
 
-        if(user.isHavecarry()){ carry++; }
-        if(user.isHavecheck()){ check++; }
+        if (user.isHaveCarry()) {
+            carry++;
+        }
+        if (user.isHaveCheck()) {
+            check++;
+        }
 
-        if(carry==1&&check==1){
+        if (carry == 1 && check == 1) {
             la1.setText("You are a customer who has booked carry on baggage and checked baggage services.");
-            la2.setText("You have " + user.getCarrybag() + " carry on baggage.");
-            la3.setText("You need to go to " + user.getCheckbag() + " to send you baggage.");
-        }else if(carry==1){
+            la2.setText("You have " + user.getCarryBag() + " carry on baggage.");
+            la3.setText("You need to go to " + user.getCheckBag() + " to send you baggage.");
+        } else if (carry == 1) {
             la1.setText("You are a customer who has booked carry on baggage service.");
             sendbtn.setEnabled(false);
             sendbtn.setText("no check in baggage");
-            la2.setText("You have " + user.getCarrybag() + " carry on baggage.");
+            la2.setText("You have " + user.getCarryBag() + " carry on baggage.");
         }else if(check==1){
             la1.setText("You are a customer who has booked checked baggage service.");
             carrybtn.setEnabled(false);
             carrybtn.setText("no carry on baggage");
-            la3.setText("You need to go to " + user.getCheckbag() + " to send you baggage.");
+            la3.setText("You need to go to " + user.getCheckBag() + " to send you baggage.");
         }else{
             la1.setText("wrong.");
         }
