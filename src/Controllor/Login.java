@@ -127,12 +127,14 @@ public class Login extends JFrame{
         NumBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new NumUI().setVisible(true);
+                dispose();
                 option="1";
             }
         });
         IDBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new IdUI().setVisible(true);
+                dispose();
                 option = "2";
             }
         });
