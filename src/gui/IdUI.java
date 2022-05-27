@@ -149,6 +149,7 @@ public class IdUI extends JFrame {
             //按钮交互
             exitBut.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    new Login().setVisible(true);
                     dispose();
                 }
             });
@@ -156,6 +157,7 @@ public class IdUI extends JFrame {
                 @Override
                 public void keyTyped(KeyEvent e) {
                     if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                        new Login().setVisible(true);
                         dispose();
                     }
                 }
@@ -172,6 +174,7 @@ public class IdUI extends JFrame {
                     Login.flight = Check.flightCheck(Login.ticket.getFlightNum());
                     UI ui = new UI();
                     ui.firstframe();
+                    dispose();
 
                 }
             });
@@ -182,7 +185,7 @@ public class IdUI extends JFrame {
                     Login.flight = Check.flightCheck(Login.ticket.getFlightNum());
                     UI ui = new UI();
                     ui.firstframe();
-
+                    dispose();
                 }
             });
             ticketBut2.addActionListener(new ActionListener() {
@@ -192,6 +195,7 @@ public class IdUI extends JFrame {
                     Login.flight = Check.flightCheck(Login.ticket.getFlightNum());
                     UI ui = new UI();
                     ui.firstframe();
+                    dispose();
 
                 }
             });
@@ -202,6 +206,7 @@ public class IdUI extends JFrame {
                     Login.flight = Check.flightCheck(Login.ticket.getFlightNum());
                     UI ui = new UI();
                     ui.firstframe();
+                    dispose();
 
                 }
             });
