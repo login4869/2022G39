@@ -23,6 +23,17 @@ public class Ticket {
         this.service = service;
         this.carryonBag = carryonBag;
         this.checkinBag = checkinBag;
+        this.seatType = String.valueOf(0);
+    }
+
+    public Ticket(String reservationNum, String userID, String flightNum, String seat, String service, String carryonBag, String checkinBag, String seatType) {
+        this.reservationNum = reservationNum;
+        this.userID = userID;
+        this.flightNum = flightNum;
+        this.seat = seat;
+        this.service = service;
+        this.carryonBag = carryonBag;
+        this.checkinBag = checkinBag;
         this.seatType = seatType;
     }
 
