@@ -95,6 +95,7 @@ public class NumUI extends JFrame {
         //按钮交互
         exitBut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                new Login().setVisible(true);
                 dispose();
             }
         });
@@ -102,6 +103,7 @@ public class NumUI extends JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 if(e.getKeyChar() == KeyEvent.VK_ENTER){
+                    new Login().setVisible(true);
                     dispose();
                 }
             }
@@ -120,6 +122,7 @@ public class NumUI extends JFrame {
                     label3.setText("correct!");
                     UI ui = new UI();
                     ui.firstframe();
+                    dispose();
                 }
             }
         });
